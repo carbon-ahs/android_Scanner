@@ -37,6 +37,12 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
-    implementation 'com.github.yuriy-budiyev:code-scanner:2.3.0'
+    implementation libs.code.scanner
+    //Room Database
+    implementation "androidx.room:room-runtime:2.6.1"
+    annotationProcessor "androidx.room:room-compiler:2.6.1"
+    // add below dependency for using lifecycle extensions for room.
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.7.0"
 }
 

@@ -1,9 +1,11 @@
 package com.axiagroups.scanner;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +13,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.axiagroups.scanner.repository.ProductRepository;
+
 public class DashboardActivity extends AppCompatActivity {
     Button qrBtn, productBtn;
+    ProductRepository productRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         productBtn = findViewById(R.id.productBtn);
         qrBtn = findViewById(R.id.qrBtn);
+        productRepository = new ProductRepository((Application) getApplicationContext());
 
         qrBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +45,9 @@ public class DashboardActivity extends AppCompatActivity {
         productBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                if(productRepository.getProductList() == null) {
+//                    Toast.makeText(DashboardActivity.this,"No data", Toast.LENGTH_SHORT);
+//                }
                 Intent intent = new Intent(DashboardActivity.this, ProductsActivity.class);
                 startActivity(intent);
             }
