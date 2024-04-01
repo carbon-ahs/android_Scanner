@@ -21,6 +21,11 @@ public class Product {
 
     }
 
+    public Product(String createDate, String qrData) {
+        this.createDate = createDate;
+        this.qrData = qrData;
+    }
+
     public Product(int productId, String createDate, String qrData) {
         this.productId = productId;
         this.createDate = createDate;
